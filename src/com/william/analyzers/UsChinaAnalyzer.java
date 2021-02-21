@@ -61,8 +61,10 @@ public class UsChinaAnalyzer {
             LogUtils.log(key, "grab connect", url);
             // TODO Auto-generated method stub
             try {
+                System.out.println("开始链接到下列网站：" + url);
                 CloseableHttpClient httpClient = HttpClients.custom().build();
                 CloseableHttpResponse response = httpClient.execute(new HttpGet(url));
+                System.out.println("成功链接到网站：" + url);
 
                 Document document = Jsoup.parse(EntityUtils.toString(response.getEntity()));
                 Elements els = document.getElementsByClass("views-group clearfix group-1 first last");
